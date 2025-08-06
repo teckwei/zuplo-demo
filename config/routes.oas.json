@@ -1,0 +1,62 @@
+{
+  "info": {
+    "version": "1.0.0",
+    "title": "My Zuplo API"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/v1/products": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Latest product",
+        "description": "This is the first route to say hello",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://zuplodemo.chongteckwei.com"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "rate-limit-inbound",
+              "api-key-inbound"
+            ],
+            "outbound": []
+          }
+        },
+        "operationId": "004ff0e0-30cf-41a7-9e9f-zuplo35e3f725",
+        "x-internal": false
+      }
+    },
+    "/api/v1/products/featured": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Feature with API Authentication",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://zuplodemo.chongteckwei.com"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "api-key-inbound-1"
+            ]
+          }
+        },
+        "operationId": "01a5e984-dde5-488f-879c-8f4488170273"
+      }
+    }
+  }
+}
