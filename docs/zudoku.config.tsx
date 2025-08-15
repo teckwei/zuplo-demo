@@ -41,6 +41,10 @@ const config: ZudokuConfig = {
               type: "doc",
               file: "test-pages",
             },
+            {
+              type: "doc",
+              file: "test-pages2",
+            },
           ],
         },
         {
